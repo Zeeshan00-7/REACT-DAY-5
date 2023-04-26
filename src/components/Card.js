@@ -1,33 +1,19 @@
 import React from 'react'
-import './components/Cards.csss'
-export default function Cards({data ,cardStyle}) {
-    
-const {
-    productId,
-    productPic,
-    productName,
-    Brand,
-    productDescription,
-    price,
-    
+import './Cards.css'
+export default function Card({ product }) 
+{
 
-    
-} = data
+  function showData(){
+    alert(`Product is ${product.name} has of rupees ${product.price} is added in the cart , please proceed to pay !!!`)
+  }
 
-const handleName = () =>{
-    alert(`product of is ${productId} which is ${productName} of brand ${Brand} has of rupees ${price} is added in the cart, please proceed to pay !!! `)
-}
   return (
-    <div className='container'>
-        <h1>{productId}</h1>
-        <img src={productPic} height='150px' width='130px' />
-        <h1>{productName}</h1>
-        <p>{Brand}</p>
-        <p>{productDescription}</p>
-        <h1>{price}</h1>
-        <button style={cardStyle} onClick={handleName}>ADD TO CART</button>
-
-      
+    <div className='cards'>
+      <img src={product.image} alt={product.name} className='img'/>
+      <h2 className='products' >{product.name}</h2>
+      <p className='description'>{product.description}</p>
+      <p className='price'>{product.price}</p>
+      <button className='btn' onClick={showData}>Add to Cart</button>
     </div>
-
-  )
+  );
+}
